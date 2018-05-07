@@ -1,29 +1,62 @@
 #include <SFML/Graphics.hpp>
-
+#include <iostream>
 using namespace sf;
+using namespace std;
 
 int main()
 {
-	const int HEIGHT_MAP = 25;//размер карты, высота
-	const int WIDTH_MAP = 40; 
-
-	Texture sloi1tex;
-	sloi1tex.loadFromFile("sloi.png");
-
-	Sprite sloi1;
-	sloi1.setTexture(sloi1tex);
 	
-	Texture level1;
-	level1.loadFromFile("poormap.png");
+	setlocale(LC_ALL, "rus");
+	
+	
+	Texture level01;
+	level01.loadFromFile("poormap.png");
 
-	Sprite level;
-	level.setTexture(level1);
+	Sprite level1;
+	level1.setTexture(level01);
+	level1.setPosition(0, 0);
 
 	Texture playertexture;
-	playertexture.loadFromFile("pizza.png");
+	playertexture.loadFromFile("person.png");
 
 	Sprite player(playertexture);
 	player.setPosition(100, 100);
+
+	Texture level02;
+	level02.loadFromFile("1.png");
+
+    Sprite level2;
+	level2.setTexture(level02);
+	level2.setPosition(1000, 1000);
+
+	Texture emmytex;
+	emmytex.loadFromFile("emmy.png");
+
+	Sprite emmy(emmytex);
+	emmy.setPosition(1000, 1000);
+
+	Texture devtex;
+	devtex.loadFromFile("dev.png");
+
+	Sprite dev(devtex);
+	dev.setPosition(1000, 1000);
+
+	Texture level03;
+	level03.loadFromFile("l3.png");
+
+	Sprite level3;
+	level3.setTexture(level03);
+	level3.setPosition(1000, 1000);
+
+	Texture house1tex;
+	house1tex.loadFromFile("house1.png");
+
+	Sprite house1(house1tex);
+	house1.setPosition(1000, 1000);
+
+	
+
+    
 
 
 	
@@ -47,7 +80,9 @@ int main()
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
 			player.move(0.3, 0);
-			player.setRotation(1);
+			player.setRotation(2);
+		
+			
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
@@ -57,13 +92,55 @@ int main()
 		{
 			player.move(0, 0.3);
 		}
+		if (Keyboard::isKeyPressed(Keyboard::Num2))
+		{
+			level1.setPosition(1000, 1000);
+			level2.setPosition(0,0);
+			emmy.setPosition(520, 450);
+			level3.setPosition(1000, 1000);
+			dev.setPosition(1000, 1000);
+			house1.setPosition(180, 520);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::D))
+		{
+			dev.setPosition(0, 0);
+			level1.setPosition(1000, 1000);
+			level3.setPosition(1000, 1000);
+			level2.setPosition(1000, 1000);
+			emmy.setPosition(1000, 1000);
+			house1.setPosition(1000, 1000);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Num3))
+		{
+			level1.setPosition(1000, 1000);
+			level3.setPosition(0, 0);
+			emmy.setPosition(1000, 1000);
+			level2.setPosition(1000, 1000);
+			dev.setPosition(1000, 1000);
+			house1.setPosition(1000, 1000);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Num1))
+		{
+			level1.setPosition(0, 0);
+			level3.setPosition(1000, 1000);
+			emmy.setPosition(1000, 1000);
+			level2.setPosition(1000, 1000);
+			dev.setPosition(1000, 1000);
+			house1.setPosition(1000, 1000);
+		}
+
+		
 
 		window.clear();
-		window.draw(sloi1);
-		window.draw(level);
+		window.draw(level1);
+		window.draw(level2);
+		window.draw(emmy);
+		window.draw(dev);
+		window.draw(level3);
+		window.draw(house1);
 		window.draw(player);
 		window.display();
 	}
 
 	return 0;
-}
+} 
