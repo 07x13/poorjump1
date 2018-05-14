@@ -54,9 +54,8 @@ int main()
 	Sprite house1(house1tex);
 	house1.setPosition(1000, 1000);
 
-	
 
-    
+
 
 
 	
@@ -65,6 +64,7 @@ int main()
 
 	while (window.isOpen())
 	{
+		
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -94,6 +94,8 @@ int main()
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Num2))
 		{
+			
+
 			level1.setPosition(1000, 1000);
 			level2.setPosition(0,0);
 			emmy.setPosition(520, 450);
@@ -127,6 +129,21 @@ int main()
 			level2.setPosition(1000, 1000);
 			dev.setPosition(1000, 1000);
 			house1.setPosition(1000, 1000);
+		}
+		FloatRect shape1 = player.getGlobalBounds();
+		FloatRect shape2 = emmy.getGlobalBounds();
+		
+		if (player.getPosition().x < emmy.getPosition().x + shape2.width &&
+			player.getPosition().x + shape1.width > emmy.getPosition().x &&
+			player.getPosition().y < emmy.getPosition().y + shape2.height &&
+			shape1.height + player.getPosition().y > emmy.getPosition().y)
+		{
+			std::cout << "Collision Detected" << std::endl;
+		    
+		}
+		else
+		{
+			
 		}
 
 		
