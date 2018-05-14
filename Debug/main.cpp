@@ -138,8 +138,7 @@ int main()
 			player.getPosition().y < emmy.getPosition().y + shape2.height &&
 			shape1.height + player.getPosition().y > emmy.getPosition().y)
 		{
-			std::cout << "Collision Detected" << std::endl;
-		    
+			std::cout << "Quest Character Detected" << std::endl;
 		}
 		else
 		{
